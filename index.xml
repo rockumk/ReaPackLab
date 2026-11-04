@@ -1,3 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab">
-</index>
+<index version="1" name="ReaPackLab" commit="09477f812e6157d88aa8a6a8e886e1b35f2a8919">
+<metadata><description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the distribution repository for the REAPER extension in the {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk"}}{\fldrslt{\ul
+ReaLab
+}}}
+ project. It is based on {\field{\*\fldinst{HYPERLINK "https://reapack.com/"}}{\fldrslt{\ul
+ReaPack
+}}}
+, the package manager created by Christian Fillion.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The distribution edition is designed for managed REAPER installations. Its intended policy is {\b permanently restricted operation}, with one approved repository compiled into the extension and {\b no Teacher Mode}. This is distinct from {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
+ReaPackLabDev
+}}}
+, which contains the full development and centrally managed classroom edition.\par}
+{\pard \ql \f0 \sa180 \li720 \fi0 {\b Development status:} Packaging is being prepared. No ReaPackLab distribution binary is published or supported yet. The presence of an index does not mean an extension is available for installation.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This repository follows the standard {\f1 reapack-index} layout:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 ReaPackLab/\line
+\u9500 ?\u9472 ?\u9472 ? index.xml             # Generated ReaPack index\line
+\u9500 ?\u9472 ?\u9472 ? Extensions/           # Extension package metadata (.ext)\line
+\u9500 ?\u9472 ?\u9472 ? README.md             # Repository description\line
+\u9492 ?\u9472 ?\u9472 ? .github/workflows/    # Index checks and generation\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Repository index URL:}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 https://raw.githubusercontent.com/rockumk/ReaPackLab/master/index.xml\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The index is generated automatically by {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
+reapack-index
+}}}
+ after package metadata is added. Do not edit generated package entries in {\f1 index.xml} by hand. Until a verified release is available, the index may contain no installable packages.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Extension packaging\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Native REAPER extensions are described by a metadata file such as {\f1 Extensions/ReaPackLab.ext}. The {\f1 @provides} entries tell ReaPack which binary to download for each operating system and architecture. Their target filenames are installed into REAPER's {\f1 UserPlugins} directory.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 See {\field{\*\fldinst{HYPERLINK "Extensions/README.md"}}{\fldrslt{\ul
+Extensions/README.md
+}}}
+ for the release metadata template and conventions based on {\field{\*\fldinst{HYPERLINK "https://github.com/ReaTeam/Extensions"}}{\fldrslt{\ul
+ReaTeam/Extensions
+}}}
+, including {\f1 darwin-arm64}, {\f1 darwin64}, {\f1 win64}, and {\f1 linux64}.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 A package version must never be published before all URLs in its active {\f1 @provides} entries point to verified release assets. GitHub Actions build artifacts are not the same as stable release assets.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Relationship to ReaPackLabDev\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 | Project | Role | | --- | --- | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab"}}{\fldrslt{\ul
+ReaPackLab
+}}}
+ | Public distribution repository and restricted distribution extension | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
+ReaPackLabDev
+}}}
+ | Development, central management, Teacher Mode and multi-repository synchronization | | ReaLab | Umbrella name for the broader software project |\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The two extension variants should be tested in separate REAPER resource directories to avoid competing over package files.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 License and acknowledgments\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is derived from ReaPack by Christian Fillion. ReaPack is licensed under the GNU Lesser General Public License, version 3 or later. Derived source and binaries must retain the applicable license and attribution notices. Packaging tools and repository-format documentation are provided by the {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
+ReaPack
+}}}
+ ecosystem.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is an independent project and is not affiliated with Cockos, Inc.\par}
+}
+]]></description></metadata></index>
