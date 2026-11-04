@@ -1,10 +1,10 @@
 # ReaPackLab
 
-**ReaPackLab** is the distribution repository for the REAPER extension in the [ReaLab](https://github.com/rockumk) project. It is based on [ReaPack](https://reapack.com/), the package manager created by Christian Fillion.
+**ReaPackLab** is the release repository for the REAPER extension in the [ReaLab](https://github.com/rockumk) project. It is based on [ReaPack](https://reapack.com/), the package manager created by Christian Fillion.
 
-The distribution edition is designed for managed REAPER installations. Its intended policy is **permanently restricted operation**, with one approved repository compiled into the extension and **no Teacher Mode**. This is distinct from [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev), which contains the full development and centrally managed classroom edition.
+The published v0.14.0 binary is a development-era **centrally managed** ReaPackLab build, with hosted configuration and Teacher Mode. [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) is its source and development repository. The planned permanently restricted, single-repository bootstrap variant is a separate project, **ReaPackLabSetup**, and is not included here.
 
-> **Development status:** Packaging is being prepared. No ReaPackLab distribution binary is published or supported yet. The presence of an index does not mean an extension is available for installation.
+> **Initial release:** [v0.14.0](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.0) provides a macOS Apple Silicon (`darwin-arm64`) binary. It should be tested in an isolated REAPER installation before wider deployment; other platforms are not yet listed.
 
 ## Repository
 
@@ -24,7 +24,7 @@ ReaPackLab/
 https://raw.githubusercontent.com/rockumk/ReaPackLab/master/index.xml
 ```
 
-The index is generated automatically by [reapack-index](https://github.com/cfillion/reapack-index) after package metadata is added. Do not edit generated package entries in `index.xml` by hand. Until a verified release is available, the index may contain no installable packages.
+The index is generated automatically by [reapack-index](https://github.com/cfillion/reapack-index) after package metadata is added. Do not edit generated package entries in `index.xml` by hand. Currently, the index has a macOS Apple Silicon package for v0.14.0.
 
 ## Extension packaging
 
@@ -38,8 +38,8 @@ A package version must never be published before all URLs in its active `@provid
 
 | Project | Role |
 | --- | --- |
-| [ReaPackLab](https://github.com/rockumk/ReaPackLab) | Public distribution repository and restricted distribution extension |
-| [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) | Development, central management, Teacher Mode and multi-repository synchronization |
+| [ReaPackLab](https://github.com/rockumk/ReaPackLab) | Release repository for the managed extension |
+| [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) | Source and development of the managed extension |
 | ReaLab | Umbrella name for the broader software project |
 
 The two extension variants should be tested in separate REAPER resource directories to avoid competing over package files.
