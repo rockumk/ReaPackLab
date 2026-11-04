@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab" commit="09477f812e6157d88aa8a6a8e886e1b35f2a8919">
-<metadata><description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+<index version="1" name="ReaPackLab" commit="bc686eb2712158b42db98b573f6687e2b0331d37">
+  <category name="Extensions">
+    <reapack name="ReaPackLab.ext" type="extension" desc="ReaPackLab: centrally managed REAPER package manager">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the distribution repository for the REAPER extension in the {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is a fork of ReaPack designed for managed REAPER environments.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This package currently provides a macOS Apple Silicon binary. It is a development-era build of the centrally managed edition, not the separate stateless ReaPackLabSetup bootstrap extension. Use in a clean test REAPER installation before classroom deployment.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Based on ReaPack by Christian Fillion (LGPL-3.0-or-later).\par}
+}
+]]></description>
+        <link rel="website" href="https://github.com/rockumk/ReaPackLab">Distribution repository</link>
+        <link rel="website" href="https://github.com/rockumk/ReaPackLabDev">Source code</link>
+      </metadata>
+      <version name="0.14.0" author="ReaLab" time="2026-11-04T23:55:50Z">
+        <changelog><![CDATA[Initial macOS Apple Silicon package release.]]></changelog>
+        <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.0/reaper_reapacklab-arm64.dylib</source>
+      </version>
+    </reapack>
+  </category>
+  <metadata>
+    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the release repository for the REAPER extension in the {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk"}}{\fldrslt{\ul
 ReaLab
 }}}
  project. It is based on {\field{\*\fldinst{HYPERLINK "https://reapack.com/"}}{\fldrslt{\ul
 ReaPack
 }}}
 , the package manager created by Christian Fillion.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The distribution edition is designed for managed REAPER installations. Its intended policy is {\b permanently restricted operation}, with one approved repository compiled into the extension and {\b no Teacher Mode}. This is distinct from {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 The published v0.14.0 binary is a development-era {\b centrally managed} ReaPackLab build, with hosted configuration and Teacher Mode. {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
 ReaPackLabDev
 }}}
-, which contains the full development and centrally managed classroom edition.\par}
-{\pard \ql \f0 \sa180 \li720 \fi0 {\b Development status:} Packaging is being prepared. No ReaPackLab distribution binary is published or supported yet. The presence of an index does not mean an extension is available for installation.\par}
+ is its source and development repository. The planned permanently restricted, single-repository bootstrap variant is a separate project, {\b ReaPackLabSetup}, and is not included here.\par}
+{\pard \ql \f0 \sa180 \li720 \fi0 {\b Initial release:} {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.0"}}{\fldrslt{\ul
+v0.14.0
+}}}
+ provides a macOS Apple Silicon ({\f1 darwin-arm64}) binary. It should be tested in an isolated REAPER installation before wider deployment; other platforms are not yet listed.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 This repository follows the standard {\f1 reapack-index} layout:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1 ReaPackLab/\line
@@ -29,7 +55,7 @@ ReaPackLabDev
 {\pard \ql \f0 \sa180 \li0 \fi0 The index is generated automatically by {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
 reapack-index
 }}}
- after package metadata is added. Do not edit generated package entries in {\f1 index.xml} by hand. Until a verified release is available, the index may contain no installable packages.\par}
+ after package metadata is added. Do not edit generated package entries in {\f1 index.xml} by hand. Currently, the index has a macOS Apple Silicon package for v0.14.0.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Extension packaging\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Native REAPER extensions are described by a metadata file such as {\f1 Extensions/ReaPackLab.ext}. The {\f1 @provides} entries tell ReaPack which binary to download for each operating system and architecture. Their target filenames are installed into REAPER's {\f1 UserPlugins} directory.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 See {\field{\*\fldinst{HYPERLINK "Extensions/README.md"}}{\fldrslt{\ul
@@ -44,10 +70,10 @@ ReaTeam/Extensions
 {\pard \ql \f0 \sa180 \li0 \fi0 | Project | Role | | --- | --- | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab"}}{\fldrslt{\ul
 ReaPackLab
 }}}
- | Public distribution repository and restricted distribution extension | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
+ | Release repository for the managed extension | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
 ReaPackLabDev
 }}}
- | Development, central management, Teacher Mode and multi-repository synchronization | | ReaLab | Umbrella name for the broader software project |\par}
+ | Source and development of the managed extension | | ReaLab | Umbrella name for the broader software project |\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 The two extension variants should be tested in separate REAPER resource directories to avoid competing over package files.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 License and acknowledgments\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is derived from ReaPack by Christian Fillion. ReaPack is licensed under the GNU Lesser General Public License, version 3 or later. Derived source and binaries must retain the applicable license and attribution notices. Packaging tools and repository-format documentation are provided by the {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
@@ -56,4 +82,6 @@ ReaPack
  ecosystem.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is an independent project and is not affiliated with Cockos, Inc.\par}
 }
-]]></description></metadata></index>
+]]></description>
+  </metadata>
+</index>
