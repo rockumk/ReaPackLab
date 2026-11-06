@@ -1,8 +1,8 @@
 @description ReaPackLab: centrally managed REAPER package manager
 @author ReaLab
-@version 0.14.0
+@version 0.14.1
 @changelog
-  Initial macOS Apple Silicon package release.
+  Stable-channel distribution of the v0.14.0-dev.7 macOS ARM64 build (same binary; not rebuilt).
 @provides
   [darwin-arm64] reaper_reapacklab-arm64.dylib https://github.com/rockumk/ReaPackLab/releases/download/v$version/$path
 @link
