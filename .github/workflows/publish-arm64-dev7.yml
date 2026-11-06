@@ -1,0 +1,33 @@
+name: Publish ReaPackLab macOS ARM64 development build
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-arm64-dev7.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download verified build artifact
+        env:
+          ARTIFACT_URL: 'https://sdmntpreastus2.oaiusercontent.com/files/00000000-b3dc-81f6-9ed2-73eed17e238d/raw?se=2026-11-06T05%3A41%3A44Z&sp=r&sv=2026-02-06&sr=b&scid=8110a887-6ecf-53d9-9fdb-b1d196a5d08a&skoid=c36a4874-d531-4a8d-99fc-7da0d9143d9c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-06T03%3A22%3A10Z&ske=2026-11-07T03%3A22%3A10Z&sks=b&skv=2026-02-06&sig=EGF7HwyX6IMeJkc3w/PAscKIoCeM/Bs8d7LCtnU0ppk%3D'
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/reapacklab
+          curl --fail --location --silent --show-error --retry 3 "$ARTIFACT_URL" -o /tmp/reapacklab.zip
+          unzip -j /tmp/reapacklab.zip -d /tmp/reapacklab
+          printf '%s  %s\n' '9d1ba24124315c0720712de9982232b0fa31e24e09738fa162e7143b6b000644' '/tmp/reapacklab/reaper_reapacklab-arm64.dylib' | sha256sum --check
+          file /tmp/reapacklab/reaper_reapacklab-arm64.dylib
+      - name: Publish prerelease asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG='v0.14.0-dev.7'
+          ASSET='/tmp/reapacklab/reaper_reapacklab-arm64.dylib'
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ASSET" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" "$ASSET" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'ReaPackLab v0.14.0-dev.7' --notes 'Development build for macOS Apple Silicon (ARM64). Built from ReaPackLabDev commit 4ab782f8 in GitHub Actions run 42168274030. SHA-256: 9d1ba24124315c0720712de9982232b0fa31e24e09738fa162e7143b6b000644. Requires REAPER restart after installation. Test before classroom deployment.' --prerelease
+          fi
