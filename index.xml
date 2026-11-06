@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab" commit="bc686eb2712158b42db98b573f6687e2b0331d37">
+<index version="1" name="ReaPackLab" commit="d4bba9708035f0a3f453665e5b91e4430e19137f">
   <category name="Extensions">
     <reapack name="ReaPackLab.ext" type="extension" desc="ReaPackLab: centrally managed REAPER package manager">
       <metadata>
@@ -19,6 +19,10 @@
       <version name="0.14.0" author="ReaLab" time="2026-11-04T23:55:50Z">
         <changelog><![CDATA[Initial macOS Apple Silicon package release.]]></changelog>
         <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.0/reaper_reapacklab-arm64.dylib</source>
+      </version>
+      <version name="0.14.1" author="ReaLab" time="2026-11-06T06:03:15Z">
+        <changelog><![CDATA[Stable-channel distribution of the v0.14.0-dev.7 macOS ARM64 build (same binary; not rebuilt).]]></changelog>
+        <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.1/reaper_reapacklab-arm64.dylib</source>
       </version>
     </reapack>
   </category>
