@@ -1,48 +1,34 @@
 # ReaPackLab
 
-**ReaPackLab** is the release repository for the REAPER extension in the [ReaLab](https://github.com/rockumk) project. It is based on [ReaPack](https://reapack.com/), the package manager created by Christian Fillion.
+**ReaPackLab** is the release repository for the centrally managed REAPER package manager in the ReaLab project, based on ReaPack by Christian Fillion.
 
-The published v0.14.0 binary is a development-era **centrally managed** ReaPackLab build, with hosted configuration and Teacher Mode. [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) is its source and development repository. The planned permanently restricted, single-repository bootstrap variant is a separate project, **ReaPackLabSetup**, and is not included here.
+**Current stable release: [v0.14.2](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.2)** — macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version **0.14.2** and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.
 
-> **Initial release:** [v0.14.0](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.0) provides a macOS Apple Silicon (`darwin-arm64`) binary. It should be tested in an isolated REAPER installation before wider deployment; other platforms are not yet listed.
+The separate [ReaPackLabSetup](https://github.com/rockumk/ReaPackLabSetup) bootstrap companion has its own version and feed. It is not included in the main binary.
 
-## Repository
+## Security and verification
 
-This repository follows the standard `reapack-index` layout:
+**Signed, not notarized.** Signing does not establish Apple notarization or Gatekeeper acceptance; macOS warnings may still occur. Do not assume that this release validates all deployment or recovery workflows. Test in an isolated REAPER resource directory before classroom or wider deployment.
 
-```text
-ReaPackLab/
-├── index.xml             # Generated ReaPack index
-├── Extensions/           # Extension package metadata (.ext)
-├── README.md             # Repository description
-└── .github/workflows/    # Index checks and generation
-```
+Each new release includes the dylib, `ReaPackLab-SHA256SUMS.txt`, and `ReaPackLab-provenance.json`, recording the final signed-byte hash and build identity. Existing releases remain unchanged. The binaries in older release tags retain their original signatures and embedded versions.
 
-**Repository index URL:**
+## Repository / installation
+
+ReaPack repository index URL:
 
 ```text
 https://raw.githubusercontent.com/rockumk/ReaPackLab/master/index.xml
 ```
 
-The index is generated automatically by [reapack-index](https://github.com/cfillion/reapack-index) after package metadata is added. Do not edit generated package entries in `index.xml` by hand. Currently, the index has a macOS Apple Silicon package for v0.14.0.
+Native extension metadata is maintained in `Extensions/ReaPackLab.ext`. Its active `@provides` entry selects the verified, versioned ARM64 release asset and installs it into REAPER's `UserPlugins` directory. Restart REAPER after installing or updating native extensions.
 
-## Extension packaging
+The index is generated automatically with [reapack-index](https://github.com/cfillion/reapack-index) after verified assets and package metadata are published. Generated package entries are not edited by hand; historical versions are retained. See [Extensions/README.md](Extensions/README.md) for packaging conventions. Documented platform examples are not a claim that those platforms have release assets.
 
-Native REAPER extensions are described by a metadata file such as `Extensions/ReaPackLab.ext`. The `@provides` entries tell ReaPack which binary to download for each operating system and architecture. Their target filenames are installed into REAPER's `UserPlugins` directory.
+## Development and scope
 
-See [Extensions/README.md](Extensions/README.md) for the release metadata template and conventions based on [ReaTeam/Extensions](https://github.com/ReaTeam/Extensions), including `darwin-arm64`, `darwin64`, `win64`, and `linux64`.
+[ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) is the development repository (access restricted). This distribution repository and its automatic source archives contain packaging metadata, not the development source tree. Public provenance records identify the exact development commit and Actions build without publishing private source or logs.
 
-A package version must never be published before all URLs in its active `@provides` entries point to verified release assets. GitHub Actions build artifacts are not the same as stable release assets.
-
-## Relationship to ReaPackLabDev
-
-| Project | Role |
-| --- | --- |
-| [ReaPackLab](https://github.com/rockumk/ReaPackLab) | Release repository for the managed extension |
-| [ReaPackLabDev](https://github.com/rockumk/ReaPackLabDev) | Source and development of the managed extension |
-| ReaLab | Umbrella name for the broader software project |
-
-The two extension variants should be tested in separate REAPER resource directories to avoid competing over package files.
+ReaPackLab is the managed package manager; ReaPackLabSetup is a separate bootstrap companion. Test installation and upgrades in isolated REAPER resources before using them with an existing managed installation.
 
 ## License and acknowledgments
 
