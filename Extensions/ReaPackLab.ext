@@ -1,8 +1,10 @@
 @description ReaPackLab: centrally managed REAPER package manager
 @author ReaLab
-@version 0.14.1
+@version 0.14.2
 @changelog
-  Stable-channel distribution of the v0.14.0-dev.7 macOS ARM64 build (same binary; not rebuilt).
+  Rebuilt with matching stable version 0.14.2 and a Developer ID Application signature.
+  Secure timestamp and hardened runtime verified; checksums and provenance are attached to the release.
+  macOS 15.0+ Apple Silicon (ARM64). Signed only; not notarized.
 @provides
   [darwin-arm64] reaper_reapacklab-arm64.dylib https://github.com/rockumk/ReaPackLab/releases/download/v$version/$path
 @link
@@ -13,9 +15,9 @@
 
   ReaPackLab is a fork of ReaPack designed for managed REAPER environments.
 
-  This package currently provides a macOS Apple Silicon binary. It is a
-  development-era build of the centrally managed edition, not the separate
-  stateless ReaPackLabSetup bootstrap extension. Use in a clean test REAPER
+  This package provides a Developer ID-signed macOS 15.0+ Apple Silicon
+  binary. It is the centrally managed edition, not the separate
+  ReaPackLabSetup bootstrap extension. This release is not notarized. Use in a clean test REAPER
   installation before classroom deployment.
 
   Based on ReaPack by Christian Fillion (LGPL-3.0-or-later).
