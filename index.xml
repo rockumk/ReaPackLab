@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab" commit="d4bba9708035f0a3f453665e5b91e4430e19137f">
+<index version="1" name="ReaPackLab" commit="cc5442bc36a36321d8735adc18541dc84b6bacc6">
   <category name="Extensions">
     <reapack name="ReaPackLab.ext" type="extension" desc="ReaPackLab: centrally managed REAPER package manager">
       <metadata>
@@ -9,7 +9,7 @@
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is a fork of ReaPack designed for managed REAPER environments.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This package currently provides a macOS Apple Silicon binary. It is a development-era build of the centrally managed edition, not the separate stateless ReaPackLabSetup bootstrap extension. Use in a clean test REAPER installation before classroom deployment.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This package provides a Developer ID-signed macOS 15.0+ Apple Silicon binary. It is the centrally managed edition, not the separate ReaPackLabSetup bootstrap extension. This release is not notarized. Use in a clean test REAPER installation before classroom deployment.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Based on ReaPack by Christian Fillion (LGPL-3.0-or-later).\par}
 }
 ]]></description>
@@ -24,6 +24,12 @@
         <changelog><![CDATA[Stable-channel distribution of the v0.14.0-dev.7 macOS ARM64 build (same binary; not rebuilt).]]></changelog>
         <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.1/reaper_reapacklab-arm64.dylib</source>
       </version>
+      <version name="0.14.2" author="ReaLab" time="2026-11-08T01:08:59Z">
+        <changelog><![CDATA[Rebuilt with matching stable version 0.14.2 and a Developer ID Application signature.
+Secure timestamp and hardened runtime verified; checksums and provenance are attached to the release.
+macOS 15.0+ Apple Silicon (ARM64). Signed only; not notarized.]]></changelog>
+        <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.2/reaper_reapacklab-arm64.dylib</source>
+      </version>
     </reapack>
   </category>
   <metadata>
@@ -32,53 +38,35 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the release repository for the REAPER extension in the {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk"}}{\fldrslt{\ul
-ReaLab
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the release repository for the centrally managed REAPER package manager in the ReaLab project, based on ReaPack by Christian Fillion.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Current stable release: {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.2"}}{\fldrslt{\ul
+v0.14.2
 }}}
- project. It is based on {\field{\*\fldinst{HYPERLINK "https://reapack.com/"}}{\fldrslt{\ul
-ReaPack
+} \u8212- macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version {\b 0.14.2} and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The separate {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabSetup"}}{\fldrslt{\ul
+ReaPackLabSetup
 }}}
-, the package manager created by Christian Fillion.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The published v0.14.0 binary is a development-era {\b centrally managed} ReaPackLab build, with hosted configuration and Teacher Mode. {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
-ReaPackLabDev
-}}}
- is its source and development repository. The planned permanently restricted, single-repository bootstrap variant is a separate project, {\b ReaPackLabSetup}, and is not included here.\par}
-{\pard \ql \f0 \sa180 \li720 \fi0 {\b Initial release:} {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.0"}}{\fldrslt{\ul
-v0.14.0
-}}}
- provides a macOS Apple Silicon ({\f1 darwin-arm64}) binary. It should be tested in an isolated REAPER installation before wider deployment; other platforms are not yet listed.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This repository follows the standard {\f1 reapack-index} layout:\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \f1 ReaPackLab/\line
-\u9500 ?\u9472 ?\u9472 ? index.xml             # Generated ReaPack index\line
-\u9500 ?\u9472 ?\u9472 ? Extensions/           # Extension package metadata (.ext)\line
-\u9500 ?\u9472 ?\u9472 ? README.md             # Repository description\line
-\u9492 ?\u9472 ?\u9472 ? .github/workflows/    # Index checks and generation\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b Repository index URL:}\par}
+ bootstrap companion has its own version and feed. It is not included in the main binary.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Security and verification\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Signed, not notarized.} Signing does not establish Apple notarization or Gatekeeper acceptance; macOS warnings may still occur. Do not assume that this release validates all deployment or recovery workflows. Test in an isolated REAPER resource directory before classroom or wider deployment.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Each new release includes the dylib, {\f1 ReaPackLab-SHA256SUMS.txt}, and {\f1 ReaPackLab-provenance.json}, recording the final signed-byte hash and build identity. Existing releases remain unchanged. The binaries in older release tags retain their original signatures and embedded versions.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository / installation\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 ReaPack repository index URL:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1 https://raw.githubusercontent.com/rockumk/ReaPackLab/master/index.xml\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The index is generated automatically by {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 Native extension metadata is maintained in {\f1 Extensions/ReaPackLab.ext}. Its active {\f1 @provides} entry selects the verified, versioned ARM64 release asset and installs it into REAPER's {\f1 UserPlugins} directory. Restart REAPER after installing or updating native extensions.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The index is generated automatically with {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
 reapack-index
 }}}
- after package metadata is added. Do not edit generated package entries in {\f1 index.xml} by hand. Currently, the index has a macOS Apple Silicon package for v0.14.0.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Extension packaging\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Native REAPER extensions are described by a metadata file such as {\f1 Extensions/ReaPackLab.ext}. The {\f1 @provides} entries tell ReaPack which binary to download for each operating system and architecture. Their target filenames are installed into REAPER's {\f1 UserPlugins} directory.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 See {\field{\*\fldinst{HYPERLINK "Extensions/README.md"}}{\fldrslt{\ul
+ after verified assets and package metadata are published. Generated package entries are not edited by hand; historical versions are retained. See {\field{\*\fldinst{HYPERLINK "Extensions/README.md"}}{\fldrslt{\ul
 Extensions/README.md
 }}}
- for the release metadata template and conventions based on {\field{\*\fldinst{HYPERLINK "https://github.com/ReaTeam/Extensions"}}{\fldrslt{\ul
-ReaTeam/Extensions
-}}}
-, including {\f1 darwin-arm64}, {\f1 darwin64}, {\f1 win64}, and {\f1 linux64}.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 A package version must never be published before all URLs in its active {\f1 @provides} entries point to verified release assets. GitHub Actions build artifacts are not the same as stable release assets.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Relationship to ReaPackLabDev\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 | Project | Role | | --- | --- | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab"}}{\fldrslt{\ul
-ReaPackLab
-}}}
- | Release repository for the managed extension | | {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
+ for packaging conventions. Documented platform examples are not a claim that those platforms have release assets.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Development and scope\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabDev"}}{\fldrslt{\ul
 ReaPackLabDev
 }}}
- | Source and development of the managed extension | | ReaLab | Umbrella name for the broader software project |\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The two extension variants should be tested in separate REAPER resource directories to avoid competing over package files.\par}
+ is the development repository (access restricted). This distribution repository and its automatic source archives contain packaging metadata, not the development source tree. Public provenance records identify the exact development commit and Actions build without publishing private source or logs.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is the managed package manager; ReaPackLabSetup is a separate bootstrap companion. Test installation and upgrades in isolated REAPER resources before using them with an existing managed installation.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 License and acknowledgments\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 ReaPackLab is derived from ReaPack by Christian Fillion. ReaPack is licensed under the GNU Lesser General Public License, version 3 or later. Derived source and binaries must retain the applicable license and attribution notices. Packaging tools and repository-format documentation are provided by the {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
 ReaPack
