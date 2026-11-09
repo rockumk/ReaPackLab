@@ -1,10 +1,12 @@
 @description ReaPackLab: centrally managed REAPER package manager
 @author ReaLab
-@version 0.14.2
+@version 0.14.3
 @changelog
-  Rebuilt with matching stable version 0.14.2 and a Developer ID Application signature.
-  Secure timestamp and hardened runtime verified; checksums and provenance are attached to the release.
-  macOS 15.0+ Apple Silicon (ARM64). Signed only; not notarized.
+  Discover readable names for new approved repositories before Scripts/Effects paths are created.
+  Preserve installed ownership; no automatic old-folder migration or cleanup.
+  Reject equivalent Mac case/Unicode namespace collisions and revoke stale subscriptions on partial discovery.
+  All nine native test groups passed on Mac and Linux; test full installation in isolated REAPER resources.
+  macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.
 @provides
   [darwin-arm64] reaper_reapacklab-arm64.dylib https://github.com/rockumk/ReaPackLab/releases/download/v$version/$path
 @link
