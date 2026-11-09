@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab" commit="cc5442bc36a36321d8735adc18541dc84b6bacc6">
+<index version="1" name="ReaPackLab" commit="7db686eb5483b369e49d4492047b6b6e4ea2e55d">
   <category name="Extensions">
     <reapack name="ReaPackLab.ext" type="extension" desc="ReaPackLab: centrally managed REAPER package manager">
       <metadata>
@@ -30,6 +30,14 @@ Secure timestamp and hardened runtime verified; checksums and provenance are att
 macOS 15.0+ Apple Silicon (ARM64). Signed only; not notarized.]]></changelog>
         <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.2/reaper_reapacklab-arm64.dylib</source>
       </version>
+      <version name="0.14.3" author="ReaLab" time="2026-11-09T15:24:23Z">
+        <changelog><![CDATA[Discover readable names for new approved repositories before Scripts/Effects paths are created.
+Preserve installed ownership; no automatic old-folder migration or cleanup.
+Reject equivalent Mac case/Unicode namespace collisions and revoke stale subscriptions on partial discovery.
+All nine native test groups passed on Mac and Linux; test full installation in isolated REAPER resources.
+macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.]]></changelog>
+        <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.3/reaper_reapacklab-arm64.dylib</source>
+      </version>
     </reapack>
   </category>
   <metadata>
@@ -39,10 +47,10 @@ macOS 15.0+ Apple Silicon (ARM64). Signed only; not notarized.]]></changelog>
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaPackLab\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b ReaPackLab} is the release repository for the centrally managed REAPER package manager in the ReaLab project, based on ReaPack by Christian Fillion.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b Current stable release: {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.2"}}{\fldrslt{\ul
-v0.14.2
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Current stable release: {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.3"}}{\fldrslt{\ul
+v0.14.3
 }}}
-} \u8212- macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version {\b 0.14.2} and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.\par}
+} \u8212- macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version {\b 0.14.3} and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 The separate {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabSetup"}}{\fldrslt{\ul
 ReaPackLabSetup
 }}}
@@ -50,6 +58,9 @@ ReaPackLabSetup
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Security and verification\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Signed, not notarized.} Signing does not establish Apple notarization or Gatekeeper acceptance; macOS warnings may still occur. Do not assume that this release validates all deployment or recovery workflows. Test in an isolated REAPER resource directory before classroom or wider deployment.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Each new release includes the dylib, {\f1 ReaPackLab-SHA256SUMS.txt}, and {\f1 ReaPackLab-provenance.json}, recording the final signed-byte hash and build identity. Existing releases remain unchanged. The binaries in older release tags retain their original signatures and embedded versions.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository folder names\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 New/unowned approved repositories use their readable index names for Scripts and Effects. Existing installed registry owners, including earlier {\f1 Repository-\u8230 ?} names, are preserved; this update does not automatically rename or migrate old folders. Deleting only folders does not reset recorded ownership. Test fresh naming in a separate REAPER resource directory rather than deleting a working registry.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Mac case/Unicode namespace collisions are checked before new identities become writable, and partial discovery failures do not keep revoked subscriptions enabled. All nine native test groups passed on Mac and Linux; full live-REAPER installation/restart behavior still needs isolated testing.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Repository / installation\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 ReaPack repository index URL:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1 https://raw.githubusercontent.com/rockumk/ReaPackLab/master/index.xml\par}
