@@ -2,7 +2,7 @@
 
 **ReaPackLab** is the release repository for the centrally managed REAPER package manager in the ReaLab project, based on ReaPack by Christian Fillion.
 
-**Current stable release: [v0.14.2](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.2)** — macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version **0.14.2** and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.
+**Current stable release: [v0.14.3](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.3)** — macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version **0.14.3** and is Developer ID Application signed, securely timestamped, and built with hardened runtime. Other platforms are not listed in this distribution.
 
 The separate [ReaPackLabSetup](https://github.com/rockumk/ReaPackLabSetup) bootstrap companion has its own version and feed. It is not included in the main binary.
 
@@ -11,6 +11,12 @@ The separate [ReaPackLabSetup](https://github.com/rockumk/ReaPackLabSetup) boots
 **Signed, not notarized.** Signing does not establish Apple notarization or Gatekeeper acceptance; macOS warnings may still occur. Do not assume that this release validates all deployment or recovery workflows. Test in an isolated REAPER resource directory before classroom or wider deployment.
 
 Each new release includes the dylib, `ReaPackLab-SHA256SUMS.txt`, and `ReaPackLab-provenance.json`, recording the final signed-byte hash and build identity. Existing releases remain unchanged. The binaries in older release tags retain their original signatures and embedded versions.
+
+## Repository folder names
+
+New/unowned approved repositories use their readable index names for Scripts and Effects. Existing installed registry owners, including earlier `Repository-…` names, are preserved; this update does not automatically rename or migrate old folders. Deleting only folders does not reset recorded ownership. Test fresh naming in a separate REAPER resource directory rather than deleting a working registry.
+
+Mac case/Unicode namespace collisions are checked before new identities become writable, and partial discovery failures do not keep revoked subscriptions enabled. All nine native test groups passed on Mac and Linux; full live-REAPER installation/restart behavior still needs isolated testing.
 
 ## Repository / installation
 
