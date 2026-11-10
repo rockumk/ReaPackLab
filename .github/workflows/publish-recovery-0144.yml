@@ -1,0 +1,43 @@
+name: Publish verified ReaPackLab v0.14.4 recovery release
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/publish-recovery-0144.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download previously signed, immutable v0.14.4 build artifact
+        env:
+          ARTIFACT_URL: 'https://sdmntpreastus3.oaiusercontent.com/files/00000000-14b4-8212-80c5-efff04a605c5/raw?se=2026-11-10T22%3A15%3A44Z&sp=r&sv=2026-02-06&sr=b&scid=69bf38ef-d34f-521c-a6ee-ffb724670a3d&skoid=db055408-822b-485f-92f8-bfeb3ea92408&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-10T13%3A30%3A36Z&ske=2026-11-11T13%3A30%3A36Z&sks=b&skv=2026-02-06&sig=Gts/VcmRXCmkTMJv3R2OkpEuKz0vp7FauV%2B7tEW5c5U%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --show-error --silent --location --retry 3 --max-time 60 "$ARTIFACT_URL" -o build.zip
+          test "$(stat -c %s build.zip)" -gt 100000
+          unzip -o build.zip -d dist
+      - name: Validate exact signed bytes and version
+        run: |
+          set -euo pipefail
+          cd dist
+          printf '%s  %s\n' '6789a622d173216b9dce19e69a9aec355b785748a1e01f974d690163aff09f28' 'reaper_reapacklab-arm64.dylib' | sha256sum --check
+          test "$(stat -c %s reaper_reapacklab-arm64.dylib)" -eq 891360
+          grep -aFq '0.14.4' reaper_reapacklab-arm64.dylib
+          grep -aFq 'cb61dd95' reaper_reapacklab-arm64.dylib
+          grep -aFq 'bootstrap-url.txt' reaper_reapacklab-arm64.dylib
+          file reaper_reapacklab-arm64.dylib
+      - name: Publish immutable v0.14.4 GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view 'v0.14.4' --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo '::error::Release v0.14.4 already exists. Refusing to overwrite.'
+            exit 1
+          fi
+          gh release create 'v0.14.4' dist/reaper_reapacklab-arm64.dylib dist/ReaPackLab-SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+            --title 'ReaPackLab v0.14.4 — remote bootstrap recovery' \
+            --notes 'Developer ID-signed, not notarized; macOS 15+ ARM64. On standard macOS installations, this temporary recovery build ignores the local ReaPackLab url.txt and instead fetches https://raw.githubusercontent.com/rockumk/ReaPackLab-Config/main/bootstrap-url.txt, which supplies the HTTPS ReaPackLab.ini URL. Source commit cb61dd954b907c127a01bc7c7a1becbe4e6e0602; signed GitHub Actions run 42911640933. Exact binary SHA-256 6789a622d173216b9dce19e69a9aec355b785748a1e01f974d690163aff09f28. Restart REAPER after updating.'
