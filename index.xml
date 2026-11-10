@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaPackLab" commit="7db686eb5483b369e49d4492047b6b6e4ea2e55d">
+<index version="1" name="ReaPackLab" commit="92521f06d28a18429258b511b962d7921517e4b3">
   <category name="Extensions">
     <reapack name="ReaPackLab.ext" type="extension" desc="ReaPackLab: centrally managed REAPER package manager">
       <metadata>
@@ -37,6 +37,13 @@ Reject equivalent Mac case/Unicode namespace collisions and revoke stale subscri
 All nine native test groups passed on Mac and Linux; test full installation in isolated REAPER resources.
 macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.]]></changelog>
         <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.3/reaper_reapacklab-arm64.dylib</source>
+      </version>
+      <version name="0.14.4" author="ReaLab" time="2026-11-10T22:11:14Z">
+        <changelog><![CDATA[Temporary classroom recovery: retrieve one-line HTTPS configuration pointer from ReaPackLab-Config/bootstrap-url.txt.
+Ignore malformed local url.txt on standard macOS installations without requiring privileged file changes.
+Preserve strict INI validation, managed repository policy, and the current Setup 0.1.1 installer.
+macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.]]></changelog>
+        <source platform="darwin-arm64" file="reaper_reapacklab-arm64.dylib">https://github.com/rockumk/ReaPackLab/releases/download/v0.14.4/reaper_reapacklab-arm64.dylib</source>
       </version>
     </reapack>
   </category>
