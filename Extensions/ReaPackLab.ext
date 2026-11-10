@@ -1,11 +1,10 @@
 @description ReaPackLab: centrally managed REAPER package manager
 @author ReaLab
-@version 0.14.3
+@version 0.14.4
 @changelog
-  Discover readable names for new approved repositories before Scripts/Effects paths are created.
-  Preserve installed ownership; no automatic old-folder migration or cleanup.
-  Reject equivalent Mac case/Unicode namespace collisions and revoke stale subscriptions on partial discovery.
-  All nine native test groups passed on Mac and Linux; test full installation in isolated REAPER resources.
+  Temporary classroom recovery: retrieve one-line HTTPS configuration pointer from ReaPackLab-Config/bootstrap-url.txt.
+  Ignore malformed local url.txt on standard macOS installations without requiring privileged file changes.
+  Preserve strict INI validation, managed repository policy, and the current Setup 0.1.1 installer.
   macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.
 @provides
   [darwin-arm64] reaper_reapacklab-arm64.dylib https://github.com/rockumk/ReaPackLab/releases/download/v$version/$path
