@@ -1,11 +1,12 @@
 @description ReaPackLab: centrally managed REAPER package manager
 @author ReaLab
-@version 0.14.4
+@version 0.14.5
 @changelog
-  Temporary classroom recovery: retrieve one-line HTTPS configuration pointer from ReaPackLab-Config/bootstrap-url.txt.
-  Ignore malformed local url.txt on standard macOS installations without requiring privileged file changes.
-  Preserve strict INI validation, managed repository policy, and the current Setup 0.1.1 installer.
-  macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed; not notarized.
+  Restore valid local url.txt priority; hosted recovery only for missing, unreadable or invalid local pointers.
+  Do not switch configuration after a selected local URL download or configuration validation fails.
+  Bound full-scan retries to a new launch, revision change or explicit Force Scan; retain five-minute policy checks.
+  Rename Force Sync action/menu label to Force Scan, preserving its existing command ID.
+  macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed, hardened runtime and Apple notarized.
 @provides
   [darwin-arm64] reaper_reapacklab-arm64.dylib https://github.com/rockumk/ReaPackLab/releases/download/v$version/$path
 @link
@@ -16,9 +17,10 @@
 
   ReaPackLab is a fork of ReaPack designed for managed REAPER environments.
 
-  This package provides a Developer ID-signed macOS 15.0+ Apple Silicon
-  binary. It is the centrally managed edition, not the separate
-  ReaPackLabSetup bootstrap extension. This release is not notarized. Use in a clean test REAPER
-  installation before classroom deployment.
+  This package provides a Developer ID-signed and Apple-notarized macOS 15.0+
+  Apple Silicon binary. It is the centrally managed edition, not the separate
+  ReaPackLabSetup bootstrap extension. Test downloaded builds in an isolated
+  REAPER resource directory before classroom deployment. Restart REAPER after
+  installing or updating a native extension.
 
   Based on ReaPack by Christian Fillion (LGPL-3.0-or-later).
