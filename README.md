@@ -4,6 +4,12 @@
 
 **Current stable release: [v0.14.5](https://github.com/rockumk/ReaPackLab/releases/tag/v0.14.5)** — macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version **0.14.5** and is Developer ID Application signed, securely timestamped, built with hardened runtime, and Apple notarized. Other platforms are not listed in this distribution.
 
+## Visual setup guide
+
+![How ReaPackLab gets its packages: create and host ReaPackLab.ini, set up protected url.txt on each Mac, install ReaPackLab, and receive approved packages](docs/reapacklab-setup-overview.svg)
+
+To get started, use the [ReaPackLab configuration editor](https://rockumk.github.io/ReaPackLab-Config/ReaPackLab_Admin.html) to create `ReaPackLab.ini`, host it at an HTTPS URL, and ask IT to place **that single URL** in `/Library/Application Support/ReaPackLab/url.txt` on each Mac. Install through [ReaBootLab](https://github.com/rockumk/ReaBootLab) and restart REAPER when prompted. The teacher can update the hosted INI's repository list without involving IT again.
+
 The separate [ReaPackLabSetup](https://github.com/rockumk/ReaPackLabSetup) bootstrap companion has its own version and feed. It is not included in the main binary.
 
 ## Security and verification
