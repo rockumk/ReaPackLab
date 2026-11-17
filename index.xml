@@ -66,6 +66,15 @@ macOS 15.0+ Apple Silicon (ARM64). Developer ID-signed, hardened runtime and App
 v0.14.5
 }}}
 } \u8212- macOS 15.0 or later, Apple Silicon (ARM64). The binary embeds version {\b 0.14.5} and is Developer ID Application signed, securely timestamped, built with hardened runtime, and Apple notarized. Other platforms are not listed in this distribution.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Visual setup guide\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\cf1 [image: docs/reapacklab-setup-overview.svg]\cf0}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 To get started, use the {\field{\*\fldinst{HYPERLINK "https://rockumk.github.io/ReaPackLab-Config/ReaPackLab_Admin.html"}}{\fldrslt{\ul
+ReaPackLab configuration editor
+}}}
+ to create {\f1 ReaPackLab.ini}, host it at an HTTPS URL, and ask IT to place {\b that single URL} in {\f1 /Library/Application Support/ReaPackLab/url.txt} on each Mac. Install through {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaBootLab"}}{\fldrslt{\ul
+ReaBootLab
+}}}
+ and restart REAPER when prompted. The teacher can update the hosted INI's repository list without involving IT again.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 The separate {\field{\*\fldinst{HYPERLINK "https://github.com/rockumk/ReaPackLabSetup"}}{\fldrslt{\ul
 ReaPackLabSetup
 }}}
